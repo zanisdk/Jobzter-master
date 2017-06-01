@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+</head>
+<body>
+    <!--<form id="uddannelse">
+        <h2>Vælg kategori</h2>
+        <div id="folkeskole">
+            <h3>Folkeskole</h3>
+
+        </div>
+        <div id="gymnasial">
+            <h3>Gymnasial Uddannelse</h3>
+
+        </div>
+
+        <div id="erhverv">
+            <h3>Erhvervsuddannelse</h3>
+        </div>
+        <br />
+        <input type="submit" value="Vælg" />
+    </form>-->
+    <form >
+        <h2>Vælg kategori</h2>
+        <div id="kategori">
+        </div>
+        <br />
+        <input type="submit" value="Vælg" />
+    </form>
+    <!--<form onsubmit="return Bruger(), false">
+        <div class="group">
+            <input data-role="none" type="file" id="Pb" accept="image/*">
+        </div>
+        <div class="group">
+            <input data-role="none" type="text" id="Fornavn" required>
+            <span class="bar"></span>
+            <label>Fornavn</label>
+        </div>
+        <div class="group">
+            <input data-role="none" type="text" id="Efternavn" required>
+            <span class="bar"></span>
+            <label>Efternavn</label>
+        </div>
+        <div class="group">
+            <input data-role="none" type="tel" id="Tlf" required>
+
+            <label>Telefonnummer</label>
+        </div>
+        <div class="group">
+            <input data-role="none" type="number" id="Postnr" required>
+            <span class="bar"></span>
+            <label>Postnummer</label>
+        </div>
+        <div class="group">
+            <input data-role="none" type="text" id="Sted" required>
+            <span class="bar"></span>
+            <label>By</label>
+        </div>
+
+        <div class="group">
+            <input data-role="none" type="text" id="Vejnavn" required>
+
+            <label class="labels">Adresse</label>
+        </div>
+
+
+        <div class="kon">
+            <label for="select-choice-a" class="select">Køn</label>
+            <select name="select-choice-a" id="Kon" data-native-menu="false" data-overlay-theme="b" required>
+                <option selected disabled hidden value="">Køn</option>
+                <option value="0">Mand</option>
+                <option value="1">Kvinde</option>
+            </select>
+        </div>
+        <input type="date" data-clear-btn="true" name="date-1" id="Fodselsdag" required value="">
+        <br />
+        <br />
+        <div class="group">
+            <input data-role="none" type="email" id="Email" required>
+
+            <label>Email</label>
+        </div>
+        <div class="group">
+            <input data-role="none" type="password" id="Adgangskode" required>
+
+            <label>Adgangskode</label>
+        </div>
+
+        <input type="submit" value="Gem" />
+    </form>-->
+
+    <!--<form>
+        <h4>Vælg jobtype</h4>
+        <div id="jobtype">
+
+        </div>
+        <br />
+        <input type="submit" value="Vælg" />
+    </form>-->
+    <!--<form id="sprog">
+        <h4>Vælg sprog</h4>
+        <select id="andre-sprog">
+            <option selected="selected">Andre sprog</option>
+        </select>
+        <br />
+        <input type="submit" value="Vælg" />
+    </form>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        var fornavn;
+        var efternavn;
+        var email;
+        var postnr;
+        var sted;
+        var vejnavn;
+        var fodselsdag;
+        var kon;
+        var tlf;
+        var adgangskode;
+        function Bruger() {
+            //pb = $("#Pb").val().replace(/\s/g, ""); //.replace(/\s/g,''); er den hurtigste måde at erstatte alle spaces.
+            fornavn = $("#Fornavn").val().replace(/\s/g, "");
+            efternavn = $("#Efternavn").val().replace(/\s/g, "");
+            //email = $("#Email").val().replace(/\s/g, "");
+            //postnr = $("#Postnr").val().replace(/\s/g, "");
+            //sted = $("#Sted").val().replace(/\s/g, "");
+            //vejnavn = $("#Vejnavn").val().replace(/\s/g, "");
+            //fodselsdag = $("#Fodselsdag").val().replace(/\s/g, "");
+            //kon = $("#Kon").val().replace(/\s/g, "");
+            //tlf = $("#Tlf").val().replace(/\s/g, "");
+            //adgangskode = $("#Adgangskode").val().replace(/\s/g, "");
+            //Arr = [pb, fornavn, efternavn, email, postnr, sted, vejnavn, fodselsdag, kon, tlf, adgangskode]
+            //console.log(Arr);
+        }
+        //function BrugerModel(pb, fornavn, efternavn, email, postnr, sted, vejnavn, fodselsdag, kon, tlf, adgangskode) { // modellen der bliver postet til webAPI'en
+        //    this.pb = pb;
+        //    this.fornavn = fornavn;
+        //    this.efternavn = efternavn;
+        //    this.email = email;
+        //    this.postnr = postnr;
+        //    this.sted = sted;
+        //    this.vejnavn = vejnavn;
+        //    this.fodselsdag = fodselsdag;
+        //    this.kon = kon;
+        //    this.tlf = tlf;
+        //    this.adgangskode = adgangskode;
+        //}
+
+        $(function () {
+            $.ajax({
+                type: 'Get',
+                url: 'http://localhost:17821/api/App/GetErhverv/',
+                success: function (data) {
+                    $.each(data, function (i, ErhvervKatVM) {
+                        $('#kategori').append('<div id="Erhverv' + ErhvervKatVM.ErhvervKat.ID + '"><input type="radio" name="ErKatID" value="" >' + ErhvervKatVM.ErhvervKat.Navn + ' <br/><select id="sel' + ErhvervKatVM.ErhvervKat.ID + '" ></select> </div>');
+                        $.each(ErhvervKatVM.Erhvervtype, function (i, Erhvervtype) {
+                            if (Erhvervtype.ErKatID == ErhvervKatVM.ErhvervKat.ID) {
+                                $('select#sel' + ErhvervKatVM.ErhvervKat.ID).append('<option value="' + Erhvervtype.ID + '">' + Erhvervtype.Navn + '</option>');
+                            }
+                        });
+                    });
+                    $('select[id^="sel"]').hide();
+                },
+                error: function (data) {
+                    alert("GetErhverv() - Det duer ikke!");
+                }
+            });
+
+            $.ajax({
+                type: 'Get',
+                url: 'http://localhost:17821/api/App/GetUdkat/',
+                success: function (data) {
+                    var type1 = '#folkeskole';
+                    var type2 = '#gymnasial';
+                    var type3 = '#erhverv';
+                    $.each(data, function (i, UdtypeVM) {
+                        if (UdtypeVM.Udkat.Type == '1') {//FOLKESKOLE
+                            GetUdkat(UdtypeVM, type1);
+                        }
+                        else if (UdtypeVM.Udkat.Type == '2') {//GYMNASIAL UDDANNELSE
+                            GetUdkat(UdtypeVM, type2);
+                        }
+                        else if (UdtypeVM.Udkat.Type == '3') {//ERHVERVSUDDANNELSE
+                            GetUdkat(UdtypeVM, type3);
+                        }
+                    });
+
+                },
+                error: function (data) {
+                    alert("GetUdkat() - Det duer ikke!");
+                }
+            });
+            //$.ajax({
+            //    type: 'Get',
+            //    url: 'http://localhost:17821/api/App/GetErfKat/',
+            //    success: function (data) {
+            //        $.each(data, function (i, ErfKat) {
+            //            $('#kategori').append('<input type="radio" name="ErfKat" value="' + ErfKat.ID + '">' + ErfKat.Navn + '<br/>');
+            //            //console.log(ErfKat.Navn + ' : ' + ErfKat.Beskrivelse);
+            //        });
+            //    },
+            //    error: function (data) {
+            //        alert("GetErfKat() - Det duer ikke!");
+            //    }
+            //});
+
+            $(document).on("change", 'input[type="radio"]', function (e) {//binds events on Ajax success Content
+                $('select').hide();// '[id^="sel"]' hides all id with sel in id
+                //console.log(selectId);
+                if ($(this).parent().find('select').length) {
+
+
+                    $($(this).parent().find('select')).show();
+                    var val = $($(this).parent().find('select')).val();
+                    $(this).val(val);
+                    console.log($(this).val());
+                }
+                else {
+                    console.log($(this).val());
+                }
+
+            });
+
+            $(document).on("change", 'select[id^="sel"]', function (e) {
+                var val = $(this).val();
+                $(this).parent().find('input').val(val);
+                console.log($(this).val());
+            });
+            $.ajax({
+                type: 'Get',
+                url: 'http://localhost:17821/api/App/GetJobtype/',
+                success: function (data) {
+                    $.each(data, function (i, Jobtype) {
+                        $('#jobtype').before('<input type="checkbox" name="JobtypeID" value="' + Jobtype.ID + '" > ' + Jobtype.Navn + '<br>');
+
+                    });
+                },
+                error: function (data) {
+                    alert("GetErfKat() - Det duer ikke!");
+                }
+            });
+
+            $.ajax({
+                type: 'Get',
+                url: 'http://localhost:17821/api/App/GetSprog/',
+                success: function (data) {
+                    $.each(data, function (i, Sprog) {
+                        if (Sprog.Valgt == true) {
+                            $('#sprog #andre-sprog').before('<input type="checkbox" name="SprogID" value="' + Sprog.ID + '" > ' + Sprog.Navn + '<br>');
+                        }
+                        else {
+                            $('#sprog #andre-sprog').append('<Option value="' + Sprog.ID + '">' + Sprog.Navn + '</option>');
+                        }
+                    });
+                },
+                error: function (data) {
+                    alert("GetErfKat() - Det duer ikke!");
+                }
+            });
+
+            $(document).on("change", 'select#andre-sprog', function (e) {
+                var val = $(this).val();
+                var text = $(this).children(':selected').text();
+                $(this).before('<input type="checkbox" name="SprogID" value="' + val + '" checked> ' + text + '<br>');
+                //console.log($(this).val() + ' ' + $(this).children(':selected').text());
+                $($(this).children('option[value="' + val + '"]')).remove();
+            });
+        });
+
+
+        function GetErfType(id) {
+            $.ajax({
+                type: 'Get',
+                url: 'http://localhost:17821/api/App/GetErfType/' + id + '/',
+                success: function (data) {
+                    $('select#underKategori').empty();
+                    $.each(data, function (i, Erhvervtype) {
+
+                        $('select#underKategori').append('<option value="' + Erhvervtype.ID + '">' + Erhvervtype.Navn + '</option>');
+                        // console.log(ErfatingType.Navn + ' : ' + ErfatingType.Beskrivelse);
+                    });
+                },
+                error: function (data) {
+                    alert("GetErfType() - Det duer ikke!");
+                }
+            });
+        }
+
+        function GetUdkat(data, type) {
+            if (data.Count > 1) {
+                $(type).append('<div id="udkat' + data.Udkat.ID + '"><input id="inp' + data.Udkat.ID + '" type="radio" name="UdkatID" value="" >' + data.Udkat.Navn + ' <br/><select id="sel' + data.Udkat.ID + '" ></select> </div>');
+                $('select#sel' + data.Udkat.ID).hide();
+                $.each(data.Udtype, function (i, Udtype) {
+                    if (Udtype.UdkatID == data.Udkat.ID) {
+                        $(type + ' select#sel' + data.Udkat.ID).append('<option value="' + Udtype.ID + '">' + Udtype.Navn + '</option>');
+                    }
+                });
+            }
+            else {
+                $.each(data.Udtype, function (i, Udtype) {
+                    if (Udtype.UdkatID == data.Udkat.ID) {
+                        $(type).append('<div id="udkat' + data.Udkat.ID + '"><input id="inp' + data.Udkat.ID + '" type="radio" name="UdkatID" value="' + Udtype.ID + '">' + data.Udkat.Navn + '</div>')
+                        //console.log('Type Navn: ' + Udtype.Navn + ', Type ID: ' + Udtype.ID);
+                    }
+                });
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>

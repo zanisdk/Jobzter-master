@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below.
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+
+
+
+
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="js/LoginTjeck.js"></script>
+    <script src="js/Main.js"></script>
+
+    <title>Opret CV</title>
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link href="css/Main.min.css" rel="stylesheet" />
+    <link href="css/Menu.min.css" rel="stylesheet" />
+    <script src="jQueryMobile/jQueryMobileSwipe.js"></script>
+    <link href="css/jQueryMobileSwipe.min.css" rel="stylesheet" />
+
+
+
+
+    <script type="text/javascript">
+
+
+        //function Spot(ID, Navn, Longitude, Latitude, Beskrivelse, DybteBund, Billede, DybteTop, PosType, Type, Afstand, Skibe, Aaben, VisPos, Decimal, Aktiv) {
+
+        //    this.ID = ID;
+        //    this.Navn = Navn;
+        //    this.Longitude = Longitude;
+        //    this.Latitude = Latitude;
+        //    this.Beskrivelse = Beskrivelse;
+        //    this.DybteBund = DybteBund;
+        //    this.Billede = Billede;
+        //    this.DybteTop = DybteTop;
+        //    this.PosType = PosType;
+        //    this.Type = Type;
+        //    this.Afstand = Afstand;
+        //    this.Skibe = Skibe;
+        //    this.Aaben = Aaben;
+        //    this.VisPos = VisPos;
+        //    this.Decimal = Decimal;
+        //    this.Aktiv = Aktiv;
+
+        //}
+
+        //function AddSpot() {
+
+
+        //    var ID = 0;
+        //    var Navn = $('#Navn').val();
+        //var Long = $('#Long').val();
+        //var Lati = $('#Lati').val();
+
+        //var Longitude = $('#Lati').val();
+        //var Latitude = $('#Long').val();
+        //var Beskrivelse = $('#Beskrivelse').val();
+        //var DybteBund = $('#DybteBund').val();
+        //var Billede = "NoImage.png";
+        //var DybteTop = $('#DybteTop').val();
+        //var PosType = $('#PosType').val();
+        //var Type = $('#Type').val();
+        //var Afstand = $('#Afstand').val();
+        //var Skibe = $('#Skibe').val();
+        //var Aaben = 0;
+        //var VisPos = 1;
+        //var Aktiv = $('#Aktiv').val();
+
+        //----wgs84  til  decimal-----
+
+
+        //var Decimal = toDec(Longitude) + ", " + toDec(Latitude);
+        ////--------------------
+
+
+        //var s = new Spot(ID, Navn, Latitude, Longitude, Beskrivelse, DybteBund, Billede, DybteTop, PosType, Type, Afstand, Skibe, Aaben, VisPos, Decimal, Aktiv);
+
+        //$.ajax({
+        //    type: 'POST',
+        //    url: 'http://www.dykkerspots.dk/api/PostSpot/' + localStorage.getItem("user"),
+        //    contentType: 'application/json; charset=utf-8',
+        //    dataType: 'json',
+        //    data: JSON.stringify(s),
+        //    success: function (data) {
+        //        navigate('VisPaaKort', data);
+        //        $('#msg').html('Dit spot er gemt!!!');
+        //    },
+        //    error: function (jqXHR, exception) {
+        //        navigate('VisPaaKort', data);
+        // var msg = 'Status: ' + jqXHR.status + "<br/>Exeption: " + exception;
+        // $('#msg').html(msg);
+        //        }
+
+
+        //    });
+
+        //window.location.assign("MitMap.html");
+        //}
+
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+
+    <div class="container-fluid demo-page" data-role="page" id="pageOpretCVS2" data-dom-cache="true" data-prev="OpretCV" data-next="VideoCV">
+        <header class="row">
+            <div class="col-xs-offset-1 col-xs-1"><a href="OpretCV.html" data-transition="slide" data-direction="reverse"><span class="fa fa-angle-left fa-3x mainColor"></span></a></div>
+            <div class="col-xs-8"><h2 class="center-block text-center">CV</h2></div>
+        </header>
+
+        <div class="row" id="CV">
+
+            <div class="col-xs-10 col-xs-offset-1  col-sm-6 col-sm-offset-3 cont">
+
+
+                <!--CVFORM2-->
+                <form class="form CVform" onsubmit="return AddSpot(), false;">
+
+
+                    <div class="center-block JobtypeValg">
+
+                        <h4 class="text-center CVform">Jeg søger</h4>
+
+                        <select name="Jobtype" id="Jobtype" data-native-menu="false" multiple="multiple" data-overlay-theme="b" data-iconpos="right">
+                            <option>Jobtype</option>
+                            <option value="Elev">Elev</option>
+                            <option value="Praktikplads">Praktikplads</option>
+                            <option value="Studiejob">Studie- fritidsjob</option>
+                            <option value="Vikar">Vikar</option>
+                            <option value="Frivillig">Frivillig</option>
+
+                        </select>
+                    </div>
+
+                    <!--Sprog-->
+
+                    <div class="center-block SprogValg">
+
+                        <h4 class="text-center CVform">Sprog</h4>
+                        <select name="Sprog" id="Sprog" data-native-menu="false" multiple="multiple" data-overlay-theme="b" data-iconpos="right" required>
+                            <option>Sprog</option>
+                            <option value="DK">Dansk</option>
+                            <option value="EN">Engelsk</option>
+                            <option value="SE">Svensk</option>
+                            <option value="NO">Norsk</option>
+                            <option value="DE">Tysk</option>
+
+                        </select>
+                    </div>
+                    <!--Kompetencer-->
+                    <div class="kompetenceValg ">
+                        <h4 class="text-center">Kompetencer</h4>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="group">
+                                    <input class="kompetence" data-role="none" type="text" id="" required placeholder="fx. Word">
+                                    <span class="bar"></span>
+                                    <label>Kompetence</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                            </div>
+
+                            <div class="col-xs-5">
+                                <div class="group">
+                                    <input class="kompetence" data-role="none" type="text" id="" required>
+                                    <span class="bar"></span>
+                                    <label>Kompetence</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="center-block">
+                        <button id="tilfoej" onclick="duplicate()">Tilføj flere</button>
+                    </div>
+                </form>
+
+                <div>
+                    <input data-role="none" id="gem" class="button center-block gemBut" type="submit" value="Gem" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+</html>

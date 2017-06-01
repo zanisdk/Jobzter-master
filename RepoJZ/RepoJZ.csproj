@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{353491EE-520B-4FEA-82AB-AAE49B7E487E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RepoJZ</RootNamespace>
+    <AssemblyName>RepoJZ</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DDMF_Light\AutoFac.cs" />
+    <Compile Include="DDMF_Light\Conn.cs" />
+    <Compile Include="DDMF_Light\Mapper.cs" />
+    <Compile Include="Factories\AgAlderFac.cs" />
+    <Compile Include="Factories\AgAnnonceFac.cs" />
+    <Compile Include="Factories\AgForventFac.cs" />
+    <Compile Include="Factories\AgOpgaverFac.cs" />
+    <Compile Include="Factories\AgTidFac.cs" />
+    <Compile Include="Factories\AgTilbydFac.cs" />
+    <Compile Include="Factories\ArbejdsgiverFac.cs" />
+    <Compile Include="Factories\BMFac.cs" />
+    <Compile Include="Factories\BrugerFac.cs" />
+    <Compile Include="Factories\CVFac.cs" />
+    <Compile Include="Factories\ErfaringerFac.cs" />
+    <Compile Include="Factories\ErfaringKatFac.cs" />
+    <Compile Include="Factories\ErfaringtypeFac.cs" />
+    <Compile Include="Factories\JobsFac.cs" />
+    <Compile Include="Factories\JobtypeFac.cs" />
+    <Compile Include="Factories\KompetencerFac.cs" />
+    <Compile Include="Factories\SprogFac.cs" />
+    <Compile Include="Factories\CVSprogFac.cs" />
+    <Compile Include="Factories\UddannelseFac.cs" />
+    <Compile Include="Factories\UdkatFac.cs" />
+    <Compile Include="Factories\UdtypeFac.cs" />
+    <Compile Include="Models\AgAlder.cs" />
+    <Compile Include="Models\AgAnnonce.cs" />
+    <Compile Include="Models\AgForvent.cs" />
+    <Compile Include="Models\AgOpgaver.cs" />
+    <Compile Include="Models\AgTid.cs" />
+    <Compile Include="Models\AgTilbyd.cs" />
+    <Compile Include="Models\Arbejdsgiver.cs" />
+    <Compile Include="Models\BM.cs" />
+    <Compile Include="Models\Bruger.cs" />
+    <Compile Include="Models\CV.cs" />
+    <Compile Include="Models\Erfaringer.cs" />
+    <Compile Include="Models\ErhvervKat.cs" />
+    <Compile Include="Models\Erhvervtype.cs" />
+    <Compile Include="Models\Jobs.cs" />
+    <Compile Include="Models\Jobtype.cs" />
+    <Compile Include="Models\Kompetencer.cs" />
+    <Compile Include="Models\CVSprog.cs" />
+    <Compile Include="Models\Sprog.cs" />
+    <Compile Include="Models\Uddannelse.cs" />
+    <Compile Include="Models\Udkat.cs" />
+    <Compile Include="Models\Udtype.cs" />
+    <Compile Include="Models\ViewModels\ErhvervKatVM.cs" />
+    <Compile Include="Models\ViewModels\OpretAnnonceVM.cs" />
+    <Compile Include="Models\ViewModels\UdtypeVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,18 @@
+﻿@using RepoJZ
+@model List<UdtypeVM>
+
+@{
+    ViewBag.Title = "GetUdkat";
+}
+
+<h2>GetUdkat</h2>
+@foreach (var t in Model)
+{
+    @t.Count
+    <br />
+    foreach(var p in t.Udtype)
+    {
+        @p.Navn
+        <br />
+    }
+}

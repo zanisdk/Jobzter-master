@@ -1,0 +1,118 @@
+﻿@using RepoJZ
+@model List<ErhvervKat>
+@{
+    ViewBag.Title = "OpretVirk";
+}
+<div class="opretVirkBG">
+    <div class="container containerOPRET">
+        <div class="row">
+            <form action="/Home/OpretVirk" method="POST" enctype="multipart/form-data">
+                <div class="col-md-4 col-md-offset-1">
+                    <div class="form_main">
+                        <div class="form">
+                            <h4>Firmaoplysninger</h4>
+                            <input type="text" name="cvr" placeholder="CVR nummer" class="txt" required />
+                            <button type="button" class="txt2 pull-right" onclick="cvrapi($('[name=cvr]').val());">Hent oplysninger</button>
+                            <input type="text" name="firma" placeholder="Firma navn" class="txt" required />
+                            <input type="number" name="post" placeholder="Post nummer" class="txt" required />
+                            <input type="text" name="sted" placeholder="By" class="txt" required />
+                            <input type="text" name="vej" placeholder="Adresse" class="txt" required />
+                            <input type="text" name="tlf" placeholder="Telefonnummer" class="txt" required />
+                            <input type="text" name="kontakt" placeholder="Kontaktperson" class="txt" required />
+                            <input type="text" name="hjemmeside" placeholder="Evt. hjemmeside" class="txt" />
+                            <select name="erkatid" class="form-control txtSelect" required>
+                                <option selected disabled value="">Vælg erhvervstype...</option>
+
+                                @foreach (var t in Model)
+                                {
+                                    <option value="@t.ID">@t.Navn</option>
+                                }
+                            </select>
+                            <input type="email" name="email" placeholder="E-mail" class="txt" required />
+                            <input type="password" id="adgangskode" name="adgangskode" placeholder="Adgangskode" class="txt" required />
+                            <input type="password" id="kode" name="kode" placeholder="Gentag adgangskode" class="txt" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-offset-2">
+                    <h4 class="addLogo">Tilføj logo</h4>
+                    <div class="form-group">
+                        <div class="main-img-preview">
+                            <img class="img-preview img-responsive" src="~/Content/GFX/logo-preview.png" title="Preview Logo">
+                        </div>
+                        <div class="input-group">
+                            <input id="fakeUploadLogo" class="form-control fake-shadow" placeholder="Filnavn" disabled="disabled">
+                            <div class="input-group-btn">
+                                <div class="fileUpload btn btn-danger fake-shadow">
+                                    <span><i class="glyphicon glyphicon-upload"></i> Upload Logo</span>
+                                    <input type="file" name="img" id="logo-id" class="attachment_upload" required />
+                                </div>
+                            </div>
+                        </div>
+                        <p class="help-block">* Upload dit firma logo.</p>
+                        <input type="submit" value="gem" class="txt2 pull-right" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--OPRET VIRK FORM SLUT-->
+<script>
+    function cvrapi(vat) {
+        jQuery.ajax
+        ({
+            type: "GET",
+            dataType: "jsonp",
+            url: "//cvrapi.dk/api?search=" + vat + "&country=dk",
+            success: function (data) {
+
+                console.log(data);
+                $('[name="firma"]').val(data.name);
+                $('[name="post"]').val(data.zipcode);
+                $('[name="sted"]').val(data.city);
+                $('[name="vej"]').val(data.address);
+                $('[name="tlf"]').val(data.phone);
+
+            }
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        var brand = document.getElementById('logo-id');
+        brand.className = 'attachment_upload';
+        brand.onchange = function () {
+            document.getElementById('fakeUploadLogo').value = this.value.substring(12);
+        };
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.img-preview').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#logo-id").change(function () {
+            readURL(this);
+        });
+    });
+
+</script>
+<script>
+    var password = document.getElementById("adgangskode")
+      , confirm_password = document.getElementById("kode");
+
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Adgangskoden matcher ikke!");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>

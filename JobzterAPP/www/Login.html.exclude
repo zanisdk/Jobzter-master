@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below.
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+
+
+
+
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="js/LoginTjeck.js"></script>
+    <script src="js/Main.js"></script>
+    <link href="css/Main.min.css" rel="stylesheet" />
+    <title>Jobzter</title>
+
+    <script type="text/javascript">
+
+        function Login() {
+
+            var email = $("#Email").val();
+            var adgangskode = $("#Adgangskode").val();
+
+            $.ajax({
+                type: 'GET',
+                url: 'http://localhost:17821/api/App/Login/' + email + '/' + adgangskode,
+                success: function (data) {
+                    alert(email + " : " + adgangskode);
+                    if (data.ID > 0) {
+                        window.localStorage.setItem("user", data.ID);
+                        window.localStorage.setItem("level", data.Level);
+                        window.location.assign("Login.html");
+                    } else {
+                        $("#msg").html("<span class=\"alert\">Brugeren blev ikke fundet!!!</span>");
+                    }
+
+                },
+                error: function(data) {
+                    alert("Det duer ikke!");
+                }
+            });
+        } 
+
+
+        $(function () {
+
+            if (window.localStorage.getItem("user") !== null) {
+                $("#loginForm").hide();
+                $("#logudForm").show();
+            } else {
+                $("#logudForm").hide();
+                $("#loginForm").show();
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <img src="GFX/JobLogo.png" class="img-responsive center Logo"/>
+
+            </div>
+        </div>
+        <form onsubmit="return Login(), false;">
+            <div id="loginForm" class="row">
+                <div class="col-xs-12 col-xs-offset-0 col-sm-10 col-sm-offset-1 cont">
+                    <span id="msg"></span>
+
+                    <input id="Email" class="form-control input-style" type="text" placeholder="E-mail">
+                    <br />
+                    <input id="Adgangskode" class="form-control input-style" type="password" placeholder="Adgangskode">
+                    <br />
+
+
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                    <input class="button pull-left" type="submit" value="Glemt adgangskode" />
+                    <input id="subBut" class="button pull-right" type="submit" value="Log ind" />
+                </div>
+
+            </div>
+        </form>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-offset-0 col-xs-12 col-sm-10 col-sm-offset-1">
+                    <h6><span>Eller</span></h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10 col-sm-10 col-sm-offset-1">
+                    <img src="GFX/loginwithF.png" class="img-responsive center FBlogin" />
+                </div>
+            </div>
+            <div class="row">
+
+                    <input class="button center-block" type="submit" value="Tilmeld dig nu" />
+
+            </div>
+        </div>
+
+    </div>
+    <div id="logudForm" class="row">
+        <div class="col-sm-12  cont text-center">
+
+            <button class="button" type="submit" onclick="navigate('Logud',0);">Logud</button>
+
+        </div>
+    </div>
+
+
+
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+
+
+
+
+
+
+</html>

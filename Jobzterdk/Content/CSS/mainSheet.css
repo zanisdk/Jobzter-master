@@ -1,0 +1,571 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Raleway', Verdana, sans-serif;
+    background-color: black;
+    background: url('/Content/GFX/BaggrundsbilledeBlack.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+#preloader {
+    background: #FFF;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+}
+
+/*NAVBAR START*/
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 0;
+}
+
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: none !important;
+}
+
+
+.navbar-inverse {
+    background-color: #ff4b00;
+    border-color: transparent;
+    -webkit-box-shadow: -1px 1px 55px -10px rgba(0,0,0,0.3);
+    -moz-box-shadow: -1px 1px 55px -10px rgba(0,0,0,0.3);
+    box-shadow: -1px 1px 55px -10px rgba(0,0,0,0.3);
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+        font-weight: 600;
+        font-size: 15px;
+        margin-top: 1px;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #ff4b00;
+        }
+
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-color: transparent;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        color: black;
+        background-color: transparent;
+    }
+
+    .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+        background-color: #ff4b00;
+    }
+
+    .navbar-inverse .navbar-toggle {
+        border-color: #ff4b00;
+    }
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: #ff4b00;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.navbar-brand {
+    width: 250px;
+    padding: 10px 0 10px 0;
+}
+/*NAVBAR SLUT*/
+
+/*NAVBAR MEDIA MAX 766px START*/
+@media only screen and (max-width: 766px) {
+    .navbar-header {
+        background-color: #ff4b00 !important;
+    }
+
+    .collapsing, .in {
+        -webkit-box-shadow: -1px 1px 55px -10px rgba(0,0,0,0.3);
+        -moz-box-shadow: -1px 1px 55px -10px rgba(0,0,0,0.3);
+        box-shadow: -1px 1px 55px -10px rgba(0,0,0,0.3);
+    }
+
+        .collapsing ul li a:hover, .in ul li a:hover {
+            color: black !important;
+        }
+
+    .navbar-brand-JZ {
+        float: left;
+        height: 50px;
+        width: 200px;
+        padding: 15px 0px 15px 15px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+/*NAVBAR MEDIA MAX 766px SLUT*/
+
+/*HOME ICON START*/
+.home {
+    padding: 7px 0px !important;
+}
+/*HOME ICON SLUT*/
+
+/*NAV A:HOVER STYLE START*/
+li.vertical-line {
+    width: 3px;
+    background-color: #ff4b00;
+    height: 100%;
+    margin-top: 10px;
+}
+
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+nav a {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-shadow: 0 0 1px rgba(255,255,255,0.3);
+    font-size: 1.35em;
+}
+
+    nav a:hover,
+    nav a:focus {
+        outline: none;
+    }
+
+/* Effect 1: Brackets */
+.cl-effect-1 a::before,
+.cl-effect-1 a::after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.cl-effect-1 a::before {
+    margin-right: 10px;
+    content: '|';
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+.cl-effect-1 a::after {
+    margin-left: 10px;
+    content: '|';
+    -webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+}
+
+.cl-effect-1 a:hover::before,
+.cl-effect-1 a:hover::after,
+.cl-effect-1 a:focus::before,
+.cl-effect-1 a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
+}
+/*NAV A:HOVER STYLE SLUT*/
+
+/*VIRKSOMHEDS LOGIN START*/
+.loginFont {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+}
+
+    .loginFont:hover {
+        color: #ff4b00;
+        transition: all 0.5s ease 0s;
+        border-color: #ff4b00;
+    }
+
+.huskLoginPos {
+    margin: 0 auto;
+}
+
+.loginAlinks a {
+    margin-left: 8px;
+    margin-right: 8px;
+    color: black;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+    .loginAlinks a:hover {
+        color: #ff4b00;
+    }
+
+.modal-header {
+    padding: 15px;
+    border-bottom: none !important;
+}
+
+.modal {
+    text-align: center;
+    padding: 0 !important;
+}
+
+
+    .modal:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-open {
+    padding-right: 0px !important;
+}
+
+.modal-content {
+    background-size: contain;
+}
+
+.well {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none;
+}
+
+    .well.login-box {
+        max-width: 400px;
+        border: none !important;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        color: black;
+        font-weight: 700;
+    }
+
+        .well.login-box legend {
+            font-size: 26px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+
+        .well.login-box input[type="text"] {
+            box-shadow: none;
+            border-color: #ddd;
+            border-radius: 0;
+        }
+
+    .well.welcome-text {
+        font-size: 21px;
+    }
+
+.findesIkke {
+    color: #ff4b00;
+    transition: all 0.5s ease 0s;
+}
+
+/*VIRKSOMHEDS LOGIN SLUT*/
+
+/*OVERSKRIFTER CONTENT START*/
+h2 {
+    color: white;
+    font-weight: 500;
+    text-shadow: 0px 1px 10px black !important;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+/*OVERSKRIFTER CONTENT SLUT*/
+
+.img-pos {
+    margin: 0 auto;
+}
+
+/*INDEX KNAPPER START*/
+.btn-VIRK {
+    color: white;
+    -webkit-box-shadow: 0px 1px 6px black;
+    -moz-box-shadow: 0px 1px 6px black;
+    box-shadow: 0px 1px 6px black;
+    border-color: white;
+    border-radius: 0 !important;
+    font-weight: 600 !important;
+    font-size: 18px;
+    margin-top: 25px !important;
+    max-width: 300px;
+    margin: 0 auto;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
+}
+
+    .btn-VIRK:hover {
+        color: #ff4b00;
+        background: rgba(0, 0, 0, 0.2);
+        transition: all 0.5s ease 0s;
+        border-color: #ff4b00;
+    }
+
+.knapBundPos {
+    margin-bottom: 20px;
+}
+/*INDEX KNAPPER SLUT*/
+
+/*MERE OM START*/
+#mereOMdesktop {
+    color: white;
+    margin-top: 110px;
+    font-size: 21px;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
+}
+
+#mereOMmobile {
+    color: white;
+    margin-top: 40px;
+    font-size: 21px;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+/*MERE OM START*/
+
+/*DOWNLOAD APP START*/
+.btn-DOWN {
+    color: white;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 0 !important;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
+}
+
+    .btn-DOWN:hover {
+        color: #ff4b00;
+        background: rgba(0, 0, 0, 0.2);
+        transition: all 0.5s ease 0s;
+        border-color: #ff4b00;
+    }
+/*DOWNLOAD APP SLUT*/
+
+/*OPRET VIRK BG START*/
+.opretVirkBG {
+    background-color: white;
+    min-height: 100%;
+}
+
+.containerOPRET {
+    background-color: whitesmoke;
+    min-height: 100%;
+}
+
+@media only screen and (min-width: 991px) {
+    .opretVirkBG {
+        background-color: white;
+        height: 100%;
+    }
+
+
+    .containerOPRET {
+        background-color: whitesmoke;
+        height: 100%;
+    }
+}
+/*OPRET VIRK BG SLUT*/
+
+/*OPRET VIRK FORM START*/
+.form_main h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+
+.form {
+    border-radius: 7px;
+    padding: 6px;
+}
+
+.txt {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px 0 10px 5px;
+    width: 100%;
+}
+
+.txtSelect {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    width: 100%;
+    border-radius: 0 !important;
+}
+
+.txt2[type="submit"], button.txt2 {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 35px;
+    margin: 10px 0;
+    padding: 0;
+    text-transform: uppercase;
+    width: 30%;
+}
+
+.txt2:hover {
+    background: rgba(0, 0, 0, 0);
+    color: #ff4b00;
+    border-color: #ff4b00;
+    transition: all 0.5s ease 0s;
+}
+
+button.txt2 {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 35px;
+    margin: 10px 0;
+    padding: 0;
+    text-transform: uppercase;
+    width: 60%;
+}
+
+    button.txt2:hover {
+        background: rgba(0, 0, 0, 0);
+        color: #ff4b00;
+        border-color: #ff4b00;
+        transition: all 0.5s ease 0s;
+    }
+
+.form-control, .thumbnail {
+    border-radius: 2px;
+}
+/*OPRET VIRK FORM SLUT*/
+
+/* LOGO UPLOAD START */
+.btn-danger {
+    background-color: #ff4b00;
+}
+
+
+.fake-shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+
+    .fileUpload #logo-id {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 33px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.img-preview {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.addLogo {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+/* LOGO UPLOAD SLUT */

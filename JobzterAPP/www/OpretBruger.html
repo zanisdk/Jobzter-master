@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below.
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+
+
+
+
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="js/LoginTjeck.js"></script>
+    <script src="js/Main.js"></script>
+
+    <title>Opret Bruger</title>
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <!--<link href="jQueryMobile/jquery.mobile-1.4.5.min.css" rel="stylesheet" />-->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link href="css/Main.min.css" rel="stylesheet" />
+    <link href="css/Menu.min.css" rel="stylesheet" />
+    <script src="jQueryMobile/jQueryMobileSwipe.js"></script>
+    <link href="css/jQueryMobileSwipe.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="cont">
+        <div class="container-fluid demo-page" data-role="page" id="pageOpret" data-dom-cache="true" data-prev="index" data-next="OpretCV">
+            <header class="row opretBruger">
+                <div class="col-xs-offset-1 col-xs-1"><a href="index.html" data-transition="slide" data-direction="reverse"><span class="fa fa-chevron-left fa-2x mainColor"></span></a></div>
+
+            </header>
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-6">
+                    <input type="file" class="hidden" id="file" name="ProfilePic" accept="image/*" />
+                    <img src="GFX/jacob-ditzel.jpg" class="img-responsive center-block profilPic img-circle" /><label for="file"><span class="fa fa-pencil-square fa-2x uploadProfileImg"></span></label>
+                </div>
+            </div>
+            <div class="row profilePicUp">
+
+
+
+
+            </div>
+            <div class="row">
+
+                <div class="col-xs-10 col-xs-offset-1  col-sm-6 col-sm-offset-3 cont">
+
+                    <form class="form" onsubmit="return AddSpot(), false;">
+
+                        <div class="group">
+                            <input data-role="none" type="text" id="Fornavn" required>
+                            <span class="bar"></span>
+                            <label>Fornavn</label>
+                        </div>
+                        <div class="group">
+                            <input data-role="none" type="text" id="Efternavn" required>
+                            <span class="bar"></span>
+                            <label>Efternavn</label>
+                        </div>
+                        <div class="group">
+                            <input data-role="none" type="text" id="Tlf" required>
+
+                            <label>Telefonnummer</label>
+                        </div>
+                        <div class="group">
+                            <input data-role="none" type="text" id="Postnr" required>
+                            <span class="bar"></span>
+                            <label>Postnummer</label>
+                        </div>
+
+                        <div class="group">
+                            <input data-role="none" type="text" id="Adresse" required>
+
+                            <label class="labels">Adresse</label>
+                        </div>
+
+
+                        <div class="kon">
+
+                            <select name="select-choice-a" id="Kon" data-native-menu="false" data-overlay-theme="b">
+                                <option hidden>Køn</option>
+                                <option value="Kvinde">Kvinde</option>
+                                <option value="Mand">Mand</option>
+
+                            </select>
+                        </div>
+
+                        <!--<div class="row">
+
+                            <p class="col-xs-12">Fødselsdag</p>
+
+                            <div class="col-xs-4">
+                                <div class="group">
+                                    <input data-role="none" type="number" id="Dato" required>
+                                    <span class="bar"></span>
+                                    <label>Dag</label>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div class="group">
+                                    <input data-role="none" type="number" id="Maanede" required>
+                                    <span class="bar"></span>
+                                    <label>Måned</label>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <div class="group">
+                                    <input data-role="none" type="number" id="Aar" required>
+                                    <span class="bar"></span>
+                                    <label>År</label>
+                                </div>
+                            </div>
+                        </div>-->
+                        <input type="date" data-clear-btn="true" name="date" id="date" required placeholder="Dag-Måned-År" />
+
+
+                    </form>
+                    <div>
+
+                        <input data-role="none" id="gem" class="button center-block gemBut" type="submit" value="Tilmeld" />
+
+                        <!--<input type="submit" class="loginBut center-block" value="Gem" />-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+
+        </script>
+</body>
+</html>
+
+
+<!--<div class="form-group">
+    <label for="Navn">Stednavn:</label>
+    <input type="text" class="form-control" id="Navn">
+</div>
+<div class="form-group">
+    <label for="Lati">Latitude:</label>
+    <input id="Lati" type="text" class="form-control" placeholder="55.11.234" />
+</div>
+<div class="form-group">
+    <label for="Long">Longitude:</label>
+    <input id="Long" type="text" class="form-control" placeholder="10.23.342" />
+</div>
+
+<div class="form-group">
+    <label for="PosType">Sikkerposition:</label>
+    <select id="PosType" class="form-control">
+        <option value="1" selected="selected">Ja</option>
+        <option value="0">Nej</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="Aktiv">Aktiv:</label>
+    <select id="Aktiv" class="form-control">
+        <option value="true" selected="selected">Ja</option>
+        <option value="false">Nej</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="Type">Type:</label>
+    <select id="Type" class="form-control">
+        <option selected="selected" value="1">Vrag</option>
+        <option value="2">Natur</option>
+        <option value="3">Jagt</option>
+        <option value="4">Andet</option>
+        <option value="5">Fyldestation</option>
+        <option value="6">Sl&#230;bested</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="Skibe">Bedømmelse:</label>
+    <select id="Skibe" class="form-control">
+        <option selected="selected" value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="DybteTop">Dybde til top:</label>
+    <input type="number" class="form-control" id="DybteTop" value="0">
+</div>
+<div class="form-group">
+    <label for="DybteBund">Dybde til bund:</label>
+    <input type="number" class="form-control" id="DybteBund" value="0">
+</div>
+<div class="form-group">
+    <label for="Afstand">Afstand fra land:</label>
+    <input type="number" class="form-control" id="Afstand" value="0">
+</div>
+<div class="form-group">
+    <label for="Beskrivelse">Beskrivelse:</label>
+    <textarea class="form-control" rows="5" id="Beskrivelse"></textarea>
+</div>
+<div class="form-group">
+    <input type="submit" class="btn btn-default" value="Gem" />
+</div>-->

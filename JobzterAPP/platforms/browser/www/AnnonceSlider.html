@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below.
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />-->
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+
+
+
+
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script src="js/LoginTjeck.js"></script>
+    <script src="js/Main.js"></script>
+    <link href="css/Main.min.css" rel="stylesheet" />
+    <title>VideoCV</title>
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+    <link href="css/Menu.min.css" rel="stylesheet" />
+    <script src="jQueryMobile/jQueryMobileSwipe.js"></script>
+    <link href="css/jQueryMobileSwipe.min.css" rel="stylesheet" />
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/Main.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div id="cont">
+        <div class="container-fluid demo-page" data-role="page" id="pageVideoCV" data-dom-cache="true" data-prev="OpretCVS2" data-next="">
+
+            <nav data-role="panel" id="mypanel">
+                <div class="navProfil">
+                    <img class="center-block img-circle profilPic" src="GFX/jacob-ditzel.jpg" alt="profPic" />
+                    <h4 class="text-center">Jacob Ditzel</h4>
+                </div>
+
+                <section id="navColor">
+                    <ul>
+                        <li><p>Jobs</p></li>
+
+                        <li><span class="fa fa-briefcase icons"></span><a href="#">Annoncer</a></li>
+                        <li><span class="fa fa-star icons"></span><a href="#">Gemte annoncer</a></li>
+                        <li><span class="badge">10</span><a href="#">Notifikationer</a></li>
+
+                    </ul>
+                    <hr />
+                    <ul>
+                        <li><p>Indstillinger</p></li>
+                        <li><span class="fa fa-user icons"></span><a href="#">Rediger bruger</a></li>
+                        <li><span class="fa fa-file-text-o icons"></span><a href="#">Opdater CV</a></li>
+                        <li><span class="fa fa-video-camera icons"></span><a href="#">Opdater VideoCV</a></li>
+                        <li><span class="fa fa-sign-out fa-lg botIcons"></span><span class="fa fa-info botIcons fa-lg"></span></li>
+
+                    </ul>
+
+
+                </section>
+
+            </nav>
+
+
+            <header data-role="header">
+
+                <a href="#" data-shadow="false" class="ui-nodisc-icon">
+                    <span class="fa fa-sliders fa-2x"></span>
+                </a>
+
+                <a href="#mypanel" data-shadow="false" class="ui-nodisc-icon">
+                    <span class="fa fa-bars fa-2x"></span>
+                </a>
+
+                <h1>
+                    <img src="GFX/whiteLogoNoEff2.png" class="img-responsive" /></h1>
+
+
+            </header>
+            <section data-role="content" class="ui-content">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-offset-2">
+                        <p id="">02/05/2017</p>
+                    </div>
+                    <h2 class="text-center" id="">Servicemedarbejder</h2>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <p id="">Super Brugsen, Hornslet</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <article class="col-xs-offset-1 col-xs-10 textFade">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor<br /><br /> incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi <br />ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate <br /><br />velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br />occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </article>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-3 col-xs-6">
+                        <p><span class="fa fa-check-square-o fa-lg text-center"></span>Over 18</p>
+                        <p><span class="fa fa-check-square-o fa-lg text-center"></span>Weekendafløser</p>
+                        <p><span class="fa fa-check-square-o fa-lg text-center"></span>Fysisk arbejde</p>
+                    </div>
+                </div>
+            </section>
+            <footer style="border-color:white" data-role="footer" data-position="fixed">
+                <nav data-role="navbar">
+                    <ul style="border-color:white;">
+                        <li><a style="background-color:red" class="ui-nodisc-icon" href="#" data-icon="delete" data-iconpos="notext"></a></li>
+                        <li><a style="background-color:gold" class="ui-nodisc-icon" href="#" data-icon="star" data-iconpos="notext"></a></li>
+                        <li><a style="background-color:green; opacity:.7" class="ui-nodisc-icon" href="#" data-icon="check" data-iconpos="notext"></a></li>
+                    </ul>
+                </nav>
+            </footer>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@using RepoJZ
+@model List<ErhvervKat>
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+<form action="/Home/OpretVirk" method="POST" enctype="multipart/form-data">
+    <input type="text" name="firma" placeholder="Firma navn" />
+    <input type="text" name="cvr" placeholder="CVR nummer" />
+    <input type="number" name="post" placeholder="Post nummer"/>
+    <input type="text" name="sted" placeholder="By"/>
+    <input type="text" name="vej" placeholder="Adresse"/>
+    <input type="text" name="kontakt" placeholder="Kontaktperson"/>
+    <input type="text" name="tlf" placeholder="Telefonnummer"/>
+    <input type="text" name="hjemmeside" placeholder="Hjemmeside" />
+    <select name="erkatid">
+        <option selected disabled>vælge en</option>
+        @foreach (var t in Model)
+        {
+            <option value="@t.ID">@t.Navn</option>
+        }
+    </select>
+    <input type="email" name="email" placeholder="E-mail"/>
+    <input type="password" name="adgangskode" placeholder="Adgangskode"/>
+    <input type="password" name="kode" placeholder="Gentag adgangskode" />
+    <input type="file" name="img" />
+    <input type="submit" value="gem" />
+    <h1 style="color: white;" class="text-center">@ViewBag.MSG</h1>
+</form>

@@ -2,6 +2,7 @@
     min-height: 100%;
 }
 
+
 body {
     font-family: 'Raleway', sans-serif;
     background-color: whitesmoke;
@@ -441,4 +442,7 @@ table tr td {
 
 .cvNavnPos {
     padding-left: 15px;
+}
+li > p{
+    margin: 0;
 }

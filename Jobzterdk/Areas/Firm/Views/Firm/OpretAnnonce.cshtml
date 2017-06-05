@@ -140,7 +140,7 @@
             </div>
 
             @ViewBag.MSG
-            <input type="submit" value="Opret annonce" name="submit" class="txt2 pull-right">
+            <input type="submit" onclick="hest()" value="Opret annonce" name="submit" class="txt2 pull-right">
         </div>
     </form>
 
@@ -165,39 +165,48 @@
         $("[name=min]").val($("#slider-range").slider("values", 0));
         $("[name=max]").val($("#slider-range").slider("values", 1));
     });
-    //OPGAVER
-    // Create a "close" button and append it to each list item
-    var myNodelist = document.getElementsByClassName("ToDo");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i].appendChild(span);
-    }
+    ////OPGAVER
+    //// Create a "close" button and append it to each list item
+    //var myNodelist = document.getElementsByClassName("ToDo");
+    //var i;
+    //for (i = 0; i < myNodelist.length; i++) {
+    //    var span = document.createElement("SPAN");
+    //    var txt = document.createTextNode("\u00D7");
+    //    span.className = "close";
+    //    span.appendChild(txt);
+    //    myNodelist[i].appendChild(span);
+    //}
 
-    // Click on a close button to hide the current list item
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
-
+    //// Click on a close button to hide the current list item
+    //var close = document.getElementsByClassName("close");
+    //var i;
+    //for (i = 0; i < close.length; i++) {
+    //    close[i].onclick = function () {
+            
+    //        var div = this.parentElement;
+    //        div.style.display = "none";
+            
+    //    }
+    //}
+    var array = []; // array til Opgave input felt
     // Create a new list item when clicking on the "Add" button
     function myInput() {
+        
         var li = document.createElement("li");
         li.className = "ToDo";
         var inputValue = document.getElementById("myInput").value;
-        var t = document.createTextNode(inputValue);
+        var t = document.createElement("p")
+        var k = document.createTextNode(inputValue);
         li.appendChild(t);
+        t.appendChild(k)
+        
+        
         if (inputValue === '') {
             alert("Du skal skrive en opgavetitel!");
         } else {
             document.getElementById("myUL").appendChild(li);
+            array.push(inputValue);
+            console.log(array)
         }
         document.getElementById("myInput").value = "";
 
@@ -206,11 +215,14 @@
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
-
+        
         for (i = 0; i < close.length; i++) {
             close[i].onclick = function () {
+                var li = this.closest("li").firstChild.innerHTML;
                 var div = this.parentElement;
                 div.style.display = "none";
+                array.splice($.inArray(li, array), 1);
+                console.log(array)
             }
         }
     }
@@ -316,5 +328,12 @@
             }
         }
     }
+
+    function hest() {
+
+    };
+
+
+
 
 </script>

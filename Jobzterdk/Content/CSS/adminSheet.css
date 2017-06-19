@@ -13,7 +13,7 @@ body {
 
 
 nav {
-    background-color: #ff4b00;
+    background-color: #004178;
     height: 50px;
     width: 100%;
 
@@ -23,7 +23,7 @@ nav {
     overflow: auto;
     font-size: 12px;
     font-weight: 600;
-    background-color: #ff4b00;
+    background-color: #004178;
     position: fixed;
     top: 0px;
     width: 300px;
@@ -32,7 +32,7 @@ nav {
 }
 
     .nav-side-menu .brand {
-        background-color: #ff4b00;
+        background-color: #004178;
         padding: 4px 15px 3px 10px;
     }
 
@@ -155,14 +155,14 @@ nav {
             top: 8px;
             z-index: 10 !important;
             /*padding: 3px;*/
-            background-color: #ff4b00;
+            background-color: #004178;
             color: #ffffff;
             width: 40px;
             text-align: center;
         }
 
     .brand {
-        background-color: #ff4b00;
+        background-color: #004178;
         padding: 100px 15px 3px 15px;
         width: 250px;
     }
@@ -220,7 +220,7 @@ table tr td {
 
 #amount {
     border: 0;
-    color: #ff4b00;
+    color: #004178;
     font-weight: bold;
     background-color: transparent;
 }
@@ -293,7 +293,7 @@ table tr td {
 }
 
     .close:hover {
-        background-color: #ff4b00;
+        background-color: #004178;
         color: white;
     }
 
@@ -351,8 +351,8 @@ table tr td {
 
 .txt2:hover {
     background: rgba(0, 0, 0, 0);
-    color: #ff4b00;
-    border-color: #ff4b00;
+    color: #004178;
+    border-color: #004178;
     transition: all 0.5s ease 0s;
 }
 
@@ -420,8 +420,8 @@ table tr td {
 
     .sendBesked:hover {
         background: rgba(0, 0, 0, 0);
-        color: #ff4b00;
-        border-color: #ff4b00;
+        color: #004178;
+        border-color: #004178;
         transition: all 0.5s ease 0s;
     }
 

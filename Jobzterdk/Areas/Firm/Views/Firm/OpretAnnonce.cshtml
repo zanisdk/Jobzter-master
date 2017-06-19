@@ -7,11 +7,11 @@
 <script>
     //function GetErfType(id) {
     //    console.log(id);
-       
+
     //}
     function getval(sel) {
         alert(sel.value);
-        
+
         $.ajax({
             type: 'Get',
             url: 'http://localhost:17821/api/App/GetErfType/' + sel.value + '/',
@@ -49,16 +49,16 @@
                         <option value="" disabled selected>Stilling</option>
                         @foreach (var a in Model.Erhvervkat)
                         {
-                            <option  value="@a.ID">@a.Navn</option>
+                            <option value="@a.ID">@a.Navn</option>
                         }
                     </select>
                     <div id="kategori"></div>
-                        
-                    
-                        
-                        
-                        
-                    
+
+
+
+
+
+
                     <select name="jobtype" class="form-control txtSelect">
                         <option value="" disabled selected>Jobtype</option>
                         @foreach (var a in Model.Jobtype)
@@ -99,13 +99,24 @@
             <p>
                 <label for="amount">Timer om ugen:</label>
                 <input type="text" id="amount">
-                <input type="hidden" name="min"/>
+                <input type="hidden" name="min" />
                 <input type="hidden" name="max" />
             </p>
 
             <div id="slider-range"></div>
 
 
+
+
+            <div class="header">
+                <h4>Vi tilbyder</h4>
+                <input type="text" class="inputToDo" placeholder="Titel...">
+                <span onclick="todo('.inputToDo')" class="addBtn">Tilføj</span>
+                <div class="ToDoList">
+
+                    <ul id="myVI"></ul>
+                </div>
+            </div>
             <div id="myDIV" class="header">
                 <h4>Opgaver</h4>
                 <input type="text" id="myInput" class="inputToDo" placeholder="Titel...">
@@ -139,6 +150,7 @@
                 <ul id="myVI"></ul>
             </div>
 
+
             @ViewBag.MSG
             @*<input type="submit" onclick="hest()" value="Opret annonce" name="submit" class="txt2 pull-right">*@
         </div>
@@ -151,6 +163,30 @@
 
 </div>
 <script>
+    var inputToDo = [];
+    var kompetencer = [];
+    var tilbyder = [];
+
+    function todo(data) {
+        console.log(data);
+        var li = document.createElement("li");
+        li.className = "ToDo";
+        var inputValue = $(data).val();
+
+
+
+        if (data == ".inputToDo") {
+
+        }
+        console.log(inputValue);
+        //var t = document.createElement("p")
+        //var k = document.createTextNode(inputValue);
+        //li.appendChild(t);
+        //t.appendChild(k)
+    }
+
+
+
 
     $(function () {
         $("#slider-range").slider({
@@ -169,8 +205,10 @@
         $("[name=min]").val($("#slider-range").slider("values", 0));
         $("[name=max]").val($("#slider-range").slider("values", 1));
     });
-    ////OPGAVER
-    //// Create a "close" button and append it to each list item
+
+   //#region test
+    //OPGAVER
+    // Create a "close" button and append it to each list item
     //var myNodelist = document.getElementsByClassName("ToDo");
     //var i;
     //for (i = 0; i < myNodelist.length; i++) {
@@ -180,187 +218,182 @@
     //    span.appendChild(txt);
     //    myNodelist[i].appendChild(span);
     //}
+    //#endregion
 
     //// Click on a close button to hide the current list item
     //var close = document.getElementsByClassName("close");
-    //var i;
-    //for (i = 0; i < close.length; i++) {
-    //    close[i].onclick = function () {
+    ////var i;
+    ////for (i = 0; i < close.length; i++) {
+    ////    close[i].onclick = function () {
 
-    //        var div = this.parentElement;
-    //        div.style.display = "none";
+    ////        var div = this.parentElement;
+    ////        div.style.display = "none";
+    ////        alert();
 
+    ////    }
+    ////}
+    //var opgaver = []; // array til Opgave input felt
+    //// Create a new list item when clicking on the "Add" button
+    //function myInput() {
+
+    //    var li = document.createElement("li");
+    //    li.className = "ToDo";
+    //    var inputValue = document.getElementById("myInput").value;
+    //    var t = document.createElement("p")
+    //    var k = document.createTextNode(inputValue);
+    //    li.appendChild(t);
+    //    t.appendChild(k)
+
+
+    //    if (inputValue === '') {
+    //        alert("Du skal skrive en opgavetitel!");
+    //    } else {
+    //        document.getElementById("myUL").appendChild(li);
+    //        opgaver.push(inputValue);
+    //        console.log(opgaver)
+    //    }
+    //    document.getElementById("myInput").value = "";
+
+    //    var span = document.createElement("SPAN");
+    //    var txt = document.createTextNode("\u00D7");
+    //    span.className = "close";
+    //    span.appendChild(txt);
+    //    li.appendChild(span);
+    //    li.attr('onClick', 'luk(this);');
+
+
+
+
+    //}
+
+    ////KOMPETENCER
+    //// Create a "close" button and append it to each list item
+    ////var myNodelist = document.getElementsByClassName("ToDoKOM");
+    ////var i;
+    ////for (i = 0; i < myNodelist.length; i++) {
+    ////    var span = document.createElement("SPAN");
+    ////    var txt = document.createTextNode("\u00D7");
+    ////    span.className = "close";
+    ////    span.appendChild(txt);
+    ////    myNodelist[i].appendChild(span);
+    ////}
+
+    ////// Click on a close button to hide the current list item
+    ////var close = document.getElementsByClassName("close");
+    ////var i;
+    ////for (i = 0; i < close.length; i++) {
+    ////    close[i].onclick = function () {
+    ////        var div = this.parentElement;
+    ////        div.style.display = "none";
+    ////    }
+    ////}
+    //var kompetencer = []; // array til Opgave input felt
+    //// Create a new list item when clicking on the "Add" button
+
+    //function myKOMInput() {
+    //    var li = document.createElement("li");
+    //    li.className = "ToDoKOM";
+    //    var inputValue = document.getElementById("myKOMInput").value;
+    //    var t = document.createElement("p")
+    //    var k = document.createTextNode(inputValue);
+    //    li.appendChild(t);
+    //    t.appendChild(k)
+    //    if (inputValue === '') {
+    //        alert("Du skal skrive en opgavetitel!");
+    //    } else {
+    //        document.getElementById("myKOM").appendChild(li);
+    //        kompetencer.push(inputValue);
+    //        console.log(kompetencer)
+    //    }
+    //    document.getElementById("myKOMInput").value = "";
+
+    //    var span = document.createElement("SPAN");
+    //    var txt = document.createTextNode("\u00D7");
+    //    span.className = "close";
+    //    span.appendChild(txt);
+    //    li.appendChild(span);
+
+    //    for (i = 0; i < close.length; i++) {
+    //        close[i].onclick = function () {
+    //            var li = this.closest("li").firstChild.innerHTML;
+    //            var div = this.parentElement;
+    //            div.style.display = "none";
+    //            kompetencer.splice($.inArray(li, kompetencer), 1);
+    //            console.log(kompetencer)
+    //        }
     //    }
     //}
-    var opgaver = []; // array til Opgave input felt
-    var kompetencer = []; // array til Opgave input felt
-    var tilbyder = []; // array til Opgave input felt
-    // Create a new list item when clicking on the "Add" button
-    function myInput() {
-
-        var li = document.createElement("li");
-        li.className = "ToDo";
-        var inputValue = document.getElementById("myInput").value;
-        var t = document.createElement("p")
-        var k = document.createTextNode(inputValue);
-        li.appendChild(t);
-        t.appendChild(k)
-
-
-        if (inputValue === '') {
-            alert("Du skal skrive en opgavetitel!");
-        } else {
-            document.getElementById("myUL").appendChild(li);
-            opgaver.push(inputValue);
-            console.log(opgaver)
-        }
-        document.getElementById("myInput").value = "";
-
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var li = this.closest("li").firstChild.innerHTML;
-                var div = this.parentElement;
-                div.style.display = "none";
-                opgaver.splice($.inArray(li, opgaver), 1);
-                console.log(opgaver)
-            }
-        }
-    }
-
-    //KOMPETENCER
-    // Create a "close" button and append it to each list item
-    var myNodelist = document.getElementsByClassName("ToDoKOM");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i].appendChild(span);
-    }
-
-    // Click on a close button to hide the current list item
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
-
-    // Create a new list item when clicking on the "Add" button
-
-    function myKOMInput() {
-        var li = document.createElement("li");
-        li.className = "ToDoKOM";
-        var inputValue = document.getElementById("myKOMInput").value;
-        var t = document.createElement("p")
-        var k = document.createTextNode(inputValue);
-        li.appendChild(t);
-        t.appendChild(k)
-        if (inputValue === '') {
-            alert("Du skal skrive en opgavetitel!");
-        } else {
-            document.getElementById("myKOM").appendChild(li);
-            kompetencer.push(inputValue);
-            console.log(kompetencer)
-        }
-        document.getElementById("myKOMInput").value = "";
-
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var li = this.closest("li").firstChild.innerHTML;
-                var div = this.parentElement;
-                div.style.display = "none";
-                kompetencer.splice($.inArray(li, kompetencer), 1);
-                console.log(kompetencer)
-            }
-        }
-    }
 
 
 
-    //VI TILBYDER
-    // Create a "close" button and append it to each list item
-    var myNodelist = document.getElementsByClassName("ToDoVI");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        myNodelist[i].appendChild(span);
-    }
+    ////VI TILBYDER
+    //// Create a "close" button and append it to each list item
+    ////var myNodelist = document.getElementsByClassName("ToDoVI");
+    ////var i;
+    ////for (i = 0; i < myNodelist.length; i++) {
+    ////    var span = document.createElement("SPAN");
+    ////    var txt = document.createTextNode("\u00D7");
+    ////    span.className = "close";
+    ////    span.appendChild(txt);
+    ////    myNodelist[i].appendChild(span);
+    ////}
 
-    // Click on a close button to hide the current list item
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
+    ////// Click on a close button to hide the current list item
+    ////var close = document.getElementsByClassName("close");
+    ////var i;
+    ////for (i = 0; i < close.length; i++) {
+    ////    close[i].onclick = function () {
+    ////        var div = this.parentElement;
+    ////        div.style.display = "none";
+    ////    }
+    ////}
+    //var tilbyder = []; // array til Opgave input felt
+    //// Create a new list item when clicking on the "Add" button
+    //function myVIInput() {
+    //    var li = document.createElement("li");
+    //    li.className = "ToDo";
+    //    var inputValue = document.getElementById("myVIInput").value;
+    //    var t = document.createElement("p")
+    //    var k = document.createTextNode(inputValue);
+    //    li.appendChild(t);
+    //    t.appendChild(k)
+    //    if (inputValue === '') {
+    //        alert("Du skal skrive en opgavetitel!");
+    //    } else {
+    //        document.getElementById("myVI").appendChild(li);
+    //        tilbyder.push(inputValue);
+    //        console.log(tilbyder)
+    //    }
+    //    document.getElementById("myVIInput").value = "";
 
-    // Create a new list item when clicking on the "Add" button
-    function myVIInput() {
-        var li = document.createElement("li");
-        li.className = "ToDo";
-        var inputValue = document.getElementById("myVIInput").value;
-        var t = document.createElement("p")
-        var k = document.createTextNode(inputValue);
-        li.appendChild(t);
-        t.appendChild(k)
-        if (inputValue === '') {
-            alert("Du skal skrive en opgavetitel!");
-        } else {
-            document.getElementById("myVI").appendChild(li);
-            tilbyder.push(inputValue);
-            console.log(tilbyder)
-        }
-        document.getElementById("myVIInput").value = "";
+    //    var span = document.createElement("SPAN");
+    //    var txt = document.createTextNode("\u00D7");
+    //    span.className = "close";
+    //    span.appendChild(txt);
+    //    li.appendChild(span);
 
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
+    //    for (i = 0; i < close.length; i++) {
+    //        close[i].onclick = function () {
+    //            var li = this.closest("li").firstChild.innerHTML;
+    //            var div = this.parentElement;
+    //            div.style.display = "none";
+    //            tilbyder.splice($.inArray(li, tilbyder), 1);
+    //            console.log(tilbyder)
+    //        }
+    //    }
+    //}
 
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var li = this.closest("li").firstChild.innerHTML;
-                var div = this.parentElement;
-                div.style.display = "none";
-                tilbyder.splice($.inArray(li, tilbyder), 1);
-                console.log(tilbyder)
-            }
-        }
-    }
-
-    function hest() {
-        var test = opgaver.toString()
-        var test1 = kompetencer.toString()
-        var test2 = tilbyder.toString()
-        $('[name=opgaver]').val(test)
-        $('[name=kompetencer]').val(test1)
-        $('[name=tilbyder]').val(test2)
-        console.log(test, test1, test2)
-    };
-
-
-
+    //function hest() {
+    //    var test = opgaver.toString()
+    //    var test1 = kompetencer.toString()
+    //    var test2 = tilbyder.toString()
+    //    $('[name=opgaver]').val("")
+    //    $('[name=kompetencer]').val("")
+    //    $('[name=tilbyder]').val("")
+    //    $('[name=opgaver]').val(test)
+    //    $('[name=kompetencer]').val(test1)
+    //    $('[name=tilbyder]').val(test2)
+    //    console.log(test, test1, test2)
+    //};
 
 </script>

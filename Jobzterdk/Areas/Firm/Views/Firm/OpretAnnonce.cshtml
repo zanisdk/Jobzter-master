@@ -140,10 +140,14 @@
             </div>
 
             @ViewBag.MSG
-            <input type="submit" onclick="hest()" value="Opret annonce" name="submit" class="txt2 pull-right">
+            @*<input type="submit" onclick="hest()" value="Opret annonce" name="submit" class="txt2 pull-right">*@
         </div>
     </form>
 
+    <input type="submit" onclick="hest()" value="Opret annonce" name="submit" class="txt2 pull-right">
+    <input type="text" name="opgaver" value="" />
+    <input type="text" name="kompetencer" value="" />
+    <input type="text" name="tilbyder" value="" />
 
 </div>
 <script>
@@ -182,16 +186,18 @@
     //var i;
     //for (i = 0; i < close.length; i++) {
     //    close[i].onclick = function () {
-            
+
     //        var div = this.parentElement;
     //        div.style.display = "none";
-            
+
     //    }
     //}
-    var array = []; // array til Opgave input felt
+    var opgaver = []; // array til Opgave input felt
+    var kompetencer = []; // array til Opgave input felt
+    var tilbyder = []; // array til Opgave input felt
     // Create a new list item when clicking on the "Add" button
     function myInput() {
-        
+
         var li = document.createElement("li");
         li.className = "ToDo";
         var inputValue = document.getElementById("myInput").value;
@@ -199,14 +205,14 @@
         var k = document.createTextNode(inputValue);
         li.appendChild(t);
         t.appendChild(k)
-        
-        
+
+
         if (inputValue === '') {
             alert("Du skal skrive en opgavetitel!");
         } else {
             document.getElementById("myUL").appendChild(li);
-            array.push(inputValue);
-            console.log(array)
+            opgaver.push(inputValue);
+            console.log(opgaver)
         }
         document.getElementById("myInput").value = "";
 
@@ -215,14 +221,14 @@
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
-        
+
         for (i = 0; i < close.length; i++) {
             close[i].onclick = function () {
                 var li = this.closest("li").firstChild.innerHTML;
                 var div = this.parentElement;
                 div.style.display = "none";
-                array.splice($.inArray(li, array), 1);
-                console.log(array)
+                opgaver.splice($.inArray(li, opgaver), 1);
+                console.log(opgaver)
             }
         }
     }
@@ -250,16 +256,21 @@
     }
 
     // Create a new list item when clicking on the "Add" button
+
     function myKOMInput() {
         var li = document.createElement("li");
         li.className = "ToDoKOM";
         var inputValue = document.getElementById("myKOMInput").value;
-        var t = document.createTextNode(inputValue);
+        var t = document.createElement("p")
+        var k = document.createTextNode(inputValue);
         li.appendChild(t);
+        t.appendChild(k)
         if (inputValue === '') {
             alert("Du skal skrive en opgavetitel!");
         } else {
             document.getElementById("myKOM").appendChild(li);
+            kompetencer.push(inputValue);
+            console.log(kompetencer)
         }
         document.getElementById("myKOMInput").value = "";
 
@@ -271,8 +282,11 @@
 
         for (i = 0; i < close.length; i++) {
             close[i].onclick = function () {
+                var li = this.closest("li").firstChild.innerHTML;
                 var div = this.parentElement;
                 div.style.display = "none";
+                kompetencer.splice($.inArray(li, kompetencer), 1);
+                console.log(kompetencer)
             }
         }
     }
@@ -306,12 +320,16 @@
         var li = document.createElement("li");
         li.className = "ToDo";
         var inputValue = document.getElementById("myVIInput").value;
-        var t = document.createTextNode(inputValue);
+        var t = document.createElement("p")
+        var k = document.createTextNode(inputValue);
         li.appendChild(t);
+        t.appendChild(k)
         if (inputValue === '') {
             alert("Du skal skrive en opgavetitel!");
         } else {
             document.getElementById("myVI").appendChild(li);
+            tilbyder.push(inputValue);
+            console.log(tilbyder)
         }
         document.getElementById("myVIInput").value = "";
 
@@ -323,14 +341,23 @@
 
         for (i = 0; i < close.length; i++) {
             close[i].onclick = function () {
+                var li = this.closest("li").firstChild.innerHTML;
                 var div = this.parentElement;
                 div.style.display = "none";
+                tilbyder.splice($.inArray(li, tilbyder), 1);
+                console.log(tilbyder)
             }
         }
     }
 
     function hest() {
-
+        var test = opgaver.toString()
+        var test1 = kompetencer.toString()
+        var test2 = tilbyder.toString()
+        $('[name=opgaver]').val(test)
+        $('[name=kompetencer]').val(test1)
+        $('[name=tilbyder]').val(test2)
+        console.log(test, test1, test2)
     };
 
 

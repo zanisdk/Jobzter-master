@@ -29,8 +29,19 @@ namespace Jobzterdk.Areas.Firm.Controllers
             return View(opvm);
         }
         [HttpPost]
-        public ActionResult OpretAnnonce(int min, int max)
+        public ActionResult OpretAnnonce(int min, int max, string[] opgaver, string[] kompetencer, string[] tilbyder)
         {
+            List<string> opg = new List<string>();
+            List<string> kom = new List<string>();
+            List<string> til = new List<string>();
+            foreach(var item in opgaver)
+            {opg.Add(item);}
+            foreach (var item in kompetencer)
+            {kom.Add(item);}
+            foreach (var item in tilbyder)
+            {til.Add(item);}
+
+
             TempData["opmsg"] = min + "" + max;
             return RedirectToAction("OpretAnnonce");
         }
